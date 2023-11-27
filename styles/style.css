@@ -1,13 +1,13 @@
 :root {
     --color-main: black;
     --color-invert: white;
-    --color--gray: #A6A6A6;
+    --color-gray: #A6A6A6;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     max-width: 1440px;
-    margin: auto;
+    margin: 0 auto;
 }
 
 * {
@@ -17,50 +17,41 @@ body {
 .main {
     max-width: 1440px;
     background-color: var(--color-main);
-    padding: 104px 114px 121px;
+    padding: clamp(60px, 9vw, 104px) clamp(14px, 6.5vw, 114px) clamp(60px, 9vw, 104px);
 }
 
 .main__text {
-    font-size: 62px;
+    font-size: clamp(1.563rem, 4vw + 0.5rem, 3.875rem);
     font-weight: 500;
     line-height: 120%;
     color: var(--color-invert);
-    margin-bottom: 104px;
+    margin-bottom: clamp(60px, 7.8vw, 104px);
 }
 
 .flex {
     display: flex;
-    gap: 28px;
+    gap: clamp(15px, 1.8vw, 28px);
 }
 
 .flex__left {
-    width: 578px;
-    height: 728px;
-}
-
-
-.flex__left img {
-    width: 100%;
-    border: 1px solid var(--color-invert);
+    flex-basis: 578px;
 }
 
 .flex__right {
     display: flex;
+    flex-basis: 606px;
     flex-direction: column;
-    gap: 58px;
-    width: 606px;
-    height: 728px;
+    justify-content: space-between;
 }
 
-.flex__right img {
+img {
     width: 100%;
-    border: 1px solid var(--color-invert);
+    border: 0.551px solid var(--color-invert);
 }
 
 .flex__text {
-    width: 507px;
-    color: var(--color--gray);
-    font-size: 18px;
+    color: var(--color-gray);
+    font-size: clamp(0.75rem, 1vw + 0.25rem, 1.125rem);
     font-weight: 500;
     line-height: 150%;
     margin: 0;
@@ -68,8 +59,8 @@ body {
 
 .flex__link {
     display: flex;
-    width: 137px;
-    height: 59px;
+    width: clamp(90px, 11.7vw, 137px);
+    height: clamp(36px, 4.7vw, 59px);
     justify-content: center;
     align-items: center;
     background-color: var(--color-invert);
@@ -80,13 +71,13 @@ body {
 
 .footer {
     background-color: var(--color-main);
-    padding-bottom: 120px;
+    padding-bottom: clamp(60px, 9vw, 120px);
 }
 
 .footer__flex {
     display: flex;
-    height: 185px;
-    padding: 0 111px;
+    height: clamp(64px, 14.5vw, 185px);
+    padding: 0 clamp(14px, 6.5vw, 114px);
     background-color: var(--color-invert);
     justify-content: space-between;
     align-items: center;
@@ -94,7 +85,23 @@ body {
 
 .footer__item {
     color: var(--color-main);
-    font-size: 42px;
+    font-size: clamp(0.75rem, 3vw, 2.625rem);
     font-weight: 600;
     line-height: 120%;
+}
+
+@media (max-width: 720px) {
+    .flex {
+        flex-direction: column;
+    }
+
+    .flex__left,
+    .flex__right {
+        flex-basis: 0;
+    }
+
+    .flex__right {
+        gap: 25px;
+    }
+
 }
